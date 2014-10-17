@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paperhub/paperhub-api",
   "dependencies": {
-    "tv4": "^1.1.4"
+    "tv4": "^1.1.4",
+    "tv4-formats": "^0.5.0"
   }
 }

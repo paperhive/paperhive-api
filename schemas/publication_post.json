@@ -4,10 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "$schema_id": {
-      "type": "string",
-      "additionalProperties": false
-    },
+    "$schema_id": { "type": "string" },
     "origins": {
       "type": "array",
       "additionalProperties": false,
@@ -16,30 +13,25 @@
         "additionalProperties": false,
         "properties": {
           "url": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
           "pdf": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
-          "id": {
-            "type": "string"
-          },
+          "id": { "type": "string" },
           "type": {
-            "type": "string"
+            "enum": ["arxiv", "uploaded"]
           },
           "date_added": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
           "added_by": {
-            "type": "string"
+            "$ref": "person.json"
           }
-        },
-        "required": [
-          "url",
-          "type",
-          "date_added",
-          "added_by"
-        ]
+        }
       }
     },
     "md5sum": {

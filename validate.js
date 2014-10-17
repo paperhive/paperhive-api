@@ -1,5 +1,8 @@
 var fs = require('fs');
 var tv4 = require('tv4');
+var tv4formats = require('tv4-formats');
+
+tv4.addFormat(tv4formats);
 
 // register all schemas
 var schemas = fs.readdirSync('schemas');
@@ -9,16 +12,17 @@ for (var i in schemas) {
     continue;
   }
 
+  process.stdout.write(
+    'Registering schema from \'schemas/' + schemas[i] + '\''
+  );
+
   // parse schema JSON
   var schema = JSON.parse(fs.readFileSync('schemas/' + schemas[i]));
-
+  
   // register schema
   tv4.addSchema(schema);
 
-  console.log(
-    'Registered schema from \'schemas/' + schemas[i] + '\' as \'' +
-     schema.id +'\'.'
-  );
+  console.log(' as \'' + schema.id + '\' succeeded.');
 }
 
 console.log();

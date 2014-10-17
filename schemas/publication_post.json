@@ -30,7 +30,7 @@
             "format": "date-time"
           },
           "added_by": {
-            "$ref": "person.json"
+            "$ref": "http://paperhub.io/api/v0/schemas/person.json#/id"
           }
         }
       }

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/paperhub/paperhub-api/issues"
   },
-  "homepage": "https://github.com/paperhub/paperhub-api"
+  "homepage": "https://github.com/paperhub/paperhub-api",
+  "dependencies": {
+    "tv4": "^1.1.4"
+  }
 }

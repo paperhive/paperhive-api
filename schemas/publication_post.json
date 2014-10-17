@@ -20,33 +20,27 @@
         "properties": {
           "url": {
             "id": "http://jsonschema.net/origins/0/url#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           },
           "pdf": {
             "id": "http://jsonschema.net/origins/0/pdf#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           },
           "id": {
             "id": "http://jsonschema.net/origins/0/id#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           },
           "type": {
             "id": "http://jsonschema.net/origins/0/type#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           },
           "date_added": {
             "id": "http://jsonschema.net/origins/0/date_added#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           },
           "added_by": {
             "id": "http://jsonschema.net/origins/0/added_by#",
-            "type": "string",
-            "additionalProperties": false
+            "type": "string"
           }
         },
         "required": [
@@ -59,45 +53,34 @@
     },
     "md5sum": {
       "id": "http://jsonschema.net/md5sum#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     },
     "authors": {
       "id": "http://jsonschema.net/authors#",
       "type": "array",
-      "additionalProperties": false,
-      "items": [
-        {
-          "id": "http://jsonschema.net/authors/0#",
-          "type": "string",
-          "additionalProperties": false
-        }
-      ]
+      "items": {
+        "$ref": "author.json"
+      }
     },
     "title": {
       "id": "http://jsonschema.net/title#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     },
     "date": {
       "id": "http://jsonschema.net/date#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     },
     "journal": {
       "id": "http://jsonschema.net/journal#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     },
     "volume": {
       "id": "http://jsonschema.net/volume#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     },
     "number": {
       "id": "http://jsonschema.net/number#",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     }
   },
   "required": [

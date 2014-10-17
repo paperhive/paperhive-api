@@ -52,3 +52,8 @@ for (var i in files) {
 
 // this is the end, my friend!
 console.log('\nAll examples passed the schema validation.');
+
+// check for missing schemas
+for (var i in tv4.missing) {
+  console.log('Warning: schema \'' + tv4.missing[i] + '\' is missing!');
+}

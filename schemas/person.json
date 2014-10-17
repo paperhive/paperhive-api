@@ -4,7 +4,7 @@
   "description": "A representation of a person.",
   "type": "object",
   "properties": {
-    "id": { "type": "number", "required": true },
+    "id": { "type": "string", "required": true },
     "formatted_name": { "type": "string" },
     "familyName": { "type": "string", "required": true },
     "givenName": { "type": "string", "required": true },

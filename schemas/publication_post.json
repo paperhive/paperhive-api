@@ -1,9 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://jsonschema.net#",
+  "id": "http://paperhub.io/api/v0/schemas/publication_post.json",
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "$schema_id": {
+      "id": "http://json-schema.org/draft-04/schema#",
+      "type": "string",
+      "additionalProperties": false
+    },
     "origins": {
       "id": "http://jsonschema.net/origins#",
       "type": "array",
@@ -16,25 +21,31 @@
           "url": {
             "id": "http://jsonschema.net/origins/0/url#",
             "type": "string",
-            "default": "http://arxiv.org/wurstwasser",
+            "additionalProperties": false
+          },
+          "pdf": {
+            "id": "http://jsonschema.net/origins/0/pdf#",
+            "type": "string",
+            "additionalProperties": false
+          },
+          "id": {
+            "id": "http://jsonschema.net/origins/0/id#",
+            "type": "string",
             "additionalProperties": false
           },
           "type": {
             "id": "http://jsonschema.net/origins/0/type#",
             "type": "string",
-            "default": "arxiv",
             "additionalProperties": false
           },
           "date_added": {
             "id": "http://jsonschema.net/origins/0/date_added#",
             "type": "string",
-            "default": "2014-10-15T16:31:32.040Z",
             "additionalProperties": false
           },
           "added_by": {
             "id": "http://jsonschema.net/origins/0/added_by#",
             "type": "string",
-            "default": "user id",
             "additionalProperties": false
           }
         },
@@ -44,15 +55,11 @@
           "date_added",
           "added_by"
         ]
-      },
-      "required": [
-        "0"
-      ]
+      }
     },
     "md5sum": {
       "id": "http://jsonschema.net/md5sum#",
       "type": "string",
-      "default": "MD5 Checksum of the PDF",
       "additionalProperties": false
     },
     "authors": {
@@ -63,49 +70,33 @@
         {
           "id": "http://jsonschema.net/authors/0#",
           "type": "string",
-          "default": "person_d1",
-          "additionalProperties": false
-        },
-        {
-          "id": "http://jsonschema.net/authors/1#",
-          "type": "string",
-          "default": "person_id2",
           "additionalProperties": false
         }
-      ],
-      "required": [
-        "0",
-        "1"
       ]
     },
     "title": {
       "id": "http://jsonschema.net/title#",
       "type": "string",
-      "default": "",
       "additionalProperties": false
     },
     "date": {
       "id": "http://jsonschema.net/date#",
       "type": "string",
-      "default": "publication date, 2014-10-15T16:31:32.040Z",
       "additionalProperties": false
     },
     "journal": {
       "id": "http://jsonschema.net/journal#",
       "type": "string",
-      "default": "journal id",
       "additionalProperties": false
     },
     "volume": {
       "id": "http://jsonschema.net/volume#",
       "type": "string",
-      "default": "5",
       "additionalProperties": false
     },
     "number": {
       "id": "http://jsonschema.net/number#",
       "type": "string",
-      "default": "",
       "additionalProperties": false
     }
   },
@@ -114,9 +105,6 @@
     "md5sum",
     "authors",
     "title",
-    "date",
-    "journal",
-    "volume",
-    "number"
+    "date"
   ]
 }

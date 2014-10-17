@@ -1,0 +1,18 @@
+{
+  "$schema_id": "http://paperhub.io/api/v0/schemas/publication_post.json",
+  "origins": [
+    {
+      "url": "http://arxiv.org/abs/1208.0264",
+      "pdf": "http://arxiv.org/pdf/1208.0264v3",
+      "id": "arXiv:1208.0264",
+      "type": "arxiv",
+      "date_added": "2014-10-15T16:31:32.040Z",
+      "added_by": "andrenarchy"
+    }
+  ],
+  "md5sum": "e0a8bc29aff95372c49844f305973994",
+  "authors": ["andrenarchy id", "nschloe id"],
+  "title": "Preconditioned Recycling Krylov subspace methods for self-adjoint problems",
+  "date": "2014-06-12T13:55:10.000Z",
+  "journal": "arxiv id"
+}

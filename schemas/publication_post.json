@@ -1,45 +1,36 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://paperhub.io/api/v0/schemas/publication_post.json",
+  "id": "http://paperhub.io/api/v0/schemas/publication_post.json#",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "$schema_id": {
-      "id": "http://json-schema.org/draft-04/schema#",
       "type": "string",
       "additionalProperties": false
     },
     "origins": {
-      "id": "http://jsonschema.net/origins#",
       "type": "array",
       "additionalProperties": false,
       "items": {
-        "id": "http://jsonschema.net/origins/0#",
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "url": {
-            "id": "http://jsonschema.net/origins/0/url#",
             "type": "string"
           },
           "pdf": {
-            "id": "http://jsonschema.net/origins/0/pdf#",
             "type": "string"
           },
           "id": {
-            "id": "http://jsonschema.net/origins/0/id#",
             "type": "string"
           },
           "type": {
-            "id": "http://jsonschema.net/origins/0/type#",
             "type": "string"
           },
           "date_added": {
-            "id": "http://jsonschema.net/origins/0/date_added#",
             "type": "string"
           },
           "added_by": {
-            "id": "http://jsonschema.net/origins/0/added_by#",
             "type": "string"
           }
         },
@@ -52,34 +43,27 @@
       }
     },
     "md5sum": {
-      "id": "http://jsonschema.net/md5sum#",
       "type": "string"
     },
     "authors": {
-      "id": "http://jsonschema.net/authors#",
       "type": "array",
       "items": {
         "$ref": "author.json"
       }
     },
     "title": {
-      "id": "http://jsonschema.net/title#",
       "type": "string"
     },
     "date": {
-      "id": "http://jsonschema.net/date#",
       "type": "string"
     },
     "journal": {
-      "id": "http://jsonschema.net/journal#",
       "type": "string"
     },
     "volume": {
-      "id": "http://jsonschema.net/volume#",
       "type": "string"
     },
     "number": {
-      "id": "http://jsonschema.net/number#",
       "type": "string"
     }
   },

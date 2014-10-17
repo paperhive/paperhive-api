@@ -55,5 +55,6 @@ console.log('\nAll examples passed the schema validation.');
 
 // check for missing schemas
 for (var i in tv4.missing) {
-  console.log('Warning: schema \'' + tv4.missing[i] + '\' is missing!');
+  console.log('Error: schema \'' + tv4.missing[i] + '\' is missing!');
+  process.exit(1);
 }

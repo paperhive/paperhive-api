@@ -18,7 +18,7 @@ for (var i in schemas) {
 
   // parse schema JSON
   var schema = JSON.parse(fs.readFileSync('schemas/' + schemas[i]));
-  
+
   // register schema
   tv4.addSchema(schema);
 
@@ -39,13 +39,18 @@ for (var i in files) {
 
   // parse example JSON
   var example = JSON.parse(fs.readFileSync('examples/' + files[i], 'utf8'));
+
+  // get schema
+  if (!example.$schema) {
+    console.log('Error: schema missing in example JSON.');
+    process.exit(1);
+  }
   var schema = tv4.getSchema(example.$schema_id);
 
   // validate!
   var valid = tv4.validate(example, schema);
   if (!valid) {
-    console.log(
-      'failed.\nError validating \'examples/' + files[i] + '\':\n' +
+    console.log('Error:\n' +
       tv4.error.message + '\n' +
       JSON.stringify(tv4.error, null, 2)
     );

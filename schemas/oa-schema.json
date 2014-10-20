@@ -6,6 +6,7 @@
   "type": "object",
 
   "properties": {
+    "$schema": { "type": "string" },
     "@context": {"enum": ["http://www.idpf.org/epub/oa/1.0/context.json"]},
     "@id" : {"type": "string", "format":"uri"},
     "@type" : {"enum": ["epub:AnnotationCollection"]},

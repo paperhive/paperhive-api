@@ -5,7 +5,7 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "$schema_id": { "type": "string" },
+    "$schema": { "type": "string" },
     "origins": {
       "type": "array",
       "additionalProperties": false,

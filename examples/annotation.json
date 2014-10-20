@@ -2,24 +2,28 @@
   "$schema": "http://paperhub.io/api/v0/schemas/oa-schema.json",
   "@context": "http://www.w3.org/ns/oa.json",
   "@type": "Annotation",
-  "annotatedAt": "2014-01-14T01:28:22-0500",
-  "annotatedBy": {
-    "@id": "http://example.com/people/shepazu",
-    "name": "Shepazu",
-    "@type" : "Person"
-  },
-  "hasBody": [
-  {
-    "chars" : "Annotations are at the Web's core."
-  },
-  {
-    "@type": "Tag",
-    "chars": [
-      "web",
-    "standards",
-    "annotations"
-      ]
+  "@id": "test id",
+  "annotations": [{
+    "annotatedAt": "2014-01-14T01:28:22-0500",
+    "annotatedBy": {
+      "@id": "http://example.com/people/shepazu",
+      "name": "Shepazu",
+      "@type" : "Person"
+    },
+    "hasBody": [
+    {
+      "chars" : "Annotations are at the Web's core."
+    },
+    {
+      "@type": "Tag",
+      "chars": [
+        "web",
+      "standards",
+      "annotations"
+        ]
+    }
+    ],
+      "hasTarget": "http://example.com/sourcedoc.html"
   }
-  ],
-    "hasTarget": "http://example.com/sourcedoc.html"
+  ]
 }

@@ -1,7 +1,7 @@
 {
-  "$schema": "http://paperhub.io/api/v0/schemas/oa-schema-collection.json",
-  "@context": "http://www.w3.org/ns/oa.jsonld",
-  "@type": "oa:Annotation",
+  "$schema": "http://paperhub.io/api/v0/schemas/open-annotation-collection.json",
+  "@context": "http://www.idpf.org/epub/oa/1.0/context.json",
+  "@type": "epub:AnnotationCollection",
   "@id": "http://this.is.a.test.id",
   "annotations": [{
     "@id": "http://this.is.a.test.id.anno",

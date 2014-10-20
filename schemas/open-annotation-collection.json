@@ -1,5 +1,5 @@
 {
-  "id": "http://paperhub.io/api/v0/schemas/oa-schema-collection.json#",
+  "id": "http://paperhub.io/api/v0/schemas/open-annotation-collection.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title" : "Open Annotation in EPUB Schema",
   "description": "A strict schema for the annotation patterns in EPUB",

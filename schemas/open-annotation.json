@@ -1,12 +1,12 @@
 {
-  "id": "http://paperhub.io/api/v0/schemas/oa-schema.json#",
+  "id": "http://paperhub.io/api/v0/schemas/open-annotation.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Open Annotation schema",
   "title": "Annotation Schema",
   "type":"object",
   "properties": {
     "$schema": { "type": "string" },
-    "@context": {"enum": ["http://www.w3.org/ns/oa.jsonld"]},
+    "@context": {"enum": ["http://www.w3.org/ns/oa-context-20130208.json"]},
     "@id" : {"type": "string", "format":"uri"},
     "@type" : {"enum": ["oa:Annotation"]},
     "hasTarget" : {"$ref": "#/definitions/targetOrList"},

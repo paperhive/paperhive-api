@@ -1,28 +1,23 @@
 {
   "$schema": "http://paperhub.io/api/v0/schemas/oa-schema.json",
-  "@context": "http://www.w3.org/ns/oa.json",
-  "@type": "Annotation",
-  "@id": "test id",
+  "@context": "http://www.idpf.org/epub/oa/1.0/context.json",
+  "@type": "epub:AnnotationCollection",
+  "@id": "http://this.is.a.test.id",
   "annotations": [{
+    "@id": "http://this.is.a.test.id.anno",
+    "@type": "oa:Annotation",
     "annotatedAt": "2014-01-14T01:28:22-0500",
     "annotatedBy": {
       "@id": "http://example.com/people/shepazu",
       "name": "Shepazu",
       "@type" : "Person"
     },
-    "hasBody": [
+    "hasBody":
     {
-      "chars" : "Annotations are at the Web's core."
+      "chars" : "Annotations are at the Web's core.",
+      "@type": "dctypes:Text",
+      "format": "application/xhtml+xml"
     },
-    {
-      "@type": "Tag",
-      "chars": [
-        "web",
-      "standards",
-      "annotations"
-        ]
-    }
-    ],
       "hasTarget": "http://example.com/sourcedoc.html"
   }
   ]

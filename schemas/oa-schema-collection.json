@@ -1,27 +1,54 @@
 {
-  "id": "http://paperhub.io/api/v0/schemas/oa-schema.json#",
+  "id": "http://paperhub.io/api/v0/schemas/oa-schema-collection.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "Open Annotation schema",
-  "title": "Annotation Schema",
-  "type":"object",
+  "title" : "Open Annotation in EPUB Schema",
+  "description": "A strict schema for the annotation patterns in EPUB",
+  "type": "object",
+
   "properties": {
     "$schema": { "type": "string" },
-    "@context": {"enum": ["http://www.w3.org/ns/oa.jsonld"]},
+    "@context": {"enum": ["http://www.idpf.org/epub/oa/1.0/context.json"]},
     "@id" : {"type": "string", "format":"uri"},
-    "@type" : {"enum": ["oa:Annotation"]},
-    "hasTarget" : {"$ref": "#/definitions/targetOrList"},
-    "hasBody" : {"$ref": "#/definitions/Body"},
-    "styledBy" : {"$ref": "#/definitions/Style"},
-    "motivatedBy" : {"$ref": "#/definitions/uriOrListOfUrisNotResource"},
-    "annotatedBy" : {"$ref": "#/definitions/resourceOrList"},
-    "annotatedAt" : {"type":"string"},
-    "generatedBy" : {"$ref": "#/definitions/resourceOrList"},
-    "generatedAt" : {"type":"string"},
-    "audience" : {"$ref": "#/definitions/resourceOrList"}
-  },   
-  "required" : ["@id", "@type", "hasTarget"],
+    "@type" : {"enum": ["epub:AnnotationCollection"]},
+    "annotations" : {
+      "type":"array",
+      "items": {
+        "$ref":"oa-schema.json"
+      }
+    },
+    "dc:created" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dc:creator" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dc:description" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dc:language" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dcterms:modified" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dc:publisher" : {"$ref" : "#/definitions/literalOrListOfLiterals"}, 
+    "dc:rights" : {"$ref" : "#/definitions/literalOrListOfLiterals"},
+    "dc:title" : {"$ref" : "#/definitions/literalOrListOfLiterals"}
+  },
+  "required": ["@context", "@id", "@type", "annotations"],
   "additionalProperties" : false,
-  "definitions": {
+
+  "definitions" : {
+    "Annotation": {
+      "title": "Annotation Schema",
+      "type":"object",
+      "properties": {
+        "@id" : {"type": "string", "format":"uri"},
+        "@type" : {"enum": ["oa:Annotation"]},
+        "hasTarget" : {"$ref": "#/definitions/targetOrList"},
+        "hasBody" : {"$ref": "#/definitions/Body"},
+        "styledBy" : {"$ref": "#/definitions/Style"},
+        "motivatedBy" : {"$ref": "#/definitions/uriOrListOfUrisNotResource"},
+        "annotatedBy" : {"$ref": "#/definitions/resourceOrList"},
+        "annotatedAt" : {"type":"string"},
+        "generatedBy" : {"$ref": "#/definitions/resourceOrList"},
+        "generatedAt" : {"type":"string"},
+        "audience" : {"$ref": "#/definitions/resourceOrList"}
+      },   
+      "required" : ["@id", "@type", "hasTarget"],
+      "additionalProperties" : false
+    },
+
     "targetOrList": {     
       "title": "Target or List of Targets Switch",
       "anyOf": [

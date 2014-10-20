@@ -1,4 +1,5 @@
 {
+  "$schema": "http://paperhub.io/api/v0/schemas/oa-schema.json",
   "@context": "http://www.w3.org/ns/oa-context-20130208.json",
   "@id": "http://www.example.org/annotations/anno1",
   "@type": "oa:Annotation",

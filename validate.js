@@ -45,7 +45,7 @@ for (var i in files) {
     console.log('Error: schema missing in example JSON.');
     process.exit(1);
   }
-  var schema = tv4.getSchema(example.$schema_id);
+  var schema = tv4.getSchema(example.$schema);
 
   // validate!
   var valid = tv4.validate(example, schema);

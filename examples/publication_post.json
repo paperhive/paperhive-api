@@ -1,5 +1,5 @@
 {
-  "$schema_id": "http://paperhub.io/api/v0/schemas/publication_post.json",
+  "$schema": "http://paperhub.io/api/v0/schemas/publication_post.json",
   "origins": [
     {
       "url": "http://arxiv.org/abs/1208.0264",

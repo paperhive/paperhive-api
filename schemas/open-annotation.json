@@ -7,7 +7,7 @@
   "properties": {
     "$schema": { "type": "string" },
     "@context": {"enum": ["http://www.w3.org/ns/oa-context-20130208.json"]},
-    "@id" : {"type": "string", "format":"uri"},
+    "@id" : {"type": "string", "format": "uri"},
     "@type" : {"enum": ["oa:Annotation"]},
     "hasTarget" : {"$ref": "#/definitions/targetOrList"},
     "hasBody" : {"$ref": "#/definitions/Body"},
@@ -106,7 +106,7 @@
       "title": "Embedded Body Schema",
       "type": "object",
       "properties": {
-        "@id" : {"type": "string", "format":"uri"},
+        "@id" : {"type": "string", "format": "uri"},
         "format" : {"enum": ["application/xhtml+xml"]},
         "@type": {"enum": ["dctypes:Text"]},
         "chars": {"type":"string"},

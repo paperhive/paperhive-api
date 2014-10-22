@@ -112,11 +112,11 @@ Annotation related resources of the *PaperHub API*.
 ### Delete an annotation [DELETE]
 + Response 204
 
-## Annotations collection [/annotations?publication={pub_id}&order={order}&skip={skip}&limit={limit}]
+## Annotations collection [/annotations?publication={pub_id}&order={order}&skip={skip}&limit={limit}&author={user_id}]
 
 ### Retrieve or query annotations [GET]
 + Parameters
-    + pub_id (optional, string) ... A publication id for which annotations are returned
+    + publication (optional, pub_id) ... Return annotations corresponding to the given publication
     + order = `created_at` (optional, string) ... The order of the returned annotations list
     
         + Values
@@ -124,10 +124,17 @@ Annotation related resources of the *PaperHub API*.
             + `-created_at`
             + `publication`
             + `-publication`
-            
+    
+    + author (optional, user_id) ... Return annotations authored by the given user 
     + limit (optional, number) ... Maximum number of returned annotations
     + skip (optional, number) ... Number of skipped annotations
     
++ Request
+
+    + Headers
+    
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
 + Response 200 (application/json)
 
     + Body

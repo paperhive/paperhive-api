@@ -1,0 +1,251 @@
+FORMAT: 1A
+
+# PaperHub API
+
+# Group Annotations
+Annotation related resources of the *PaperHub API*.
+
+## Annotation creation [/annotations/]
+
+### Create an annotation [POST]
++ Request (application/json)
+    + Headers
+    
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
+    + Body
+
+            {
+              "publication_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
+              "target": {
+                "type": "FragmentSelector",
+                "page": 5,
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 3
+              },
+              "body": {
+                "type": "markdown",
+                "value": "# A header\nA text"
+              }
+            }
+
+
+    + Schema
+
+            {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "id": "http://paperhub.io/api/v0/schemas/annotation_post.json#",
+              "description": "PaperHub annotation schema for POSTing",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "$schema": {
+                  "enum": ["http://paperhub.io/api/v0/schemas/annotation_post.json#"]
+                },
+                "publication_id": { "type": "string" },
+                "target": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "type": { "enum": ["FragmentSelector"] },
+                        "page": { "type": "integer", "minimum": 1 },
+                        "x": { "type": "number" },
+                        "y": { "type": "number" },
+                        "w": { "type": "number" },
+                        "h": { "type": "number" }
+                      },
+                      "required": ["type", "page", "x", "y", "w", "h"]
+                    }
+                  ]
+                }, 
+                "body": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "type": { "enum": ["markdown"] },
+                    "value": { "type": "string" },
+                    "language": { "type": "string" }
+                  },
+                  "required": ["type", "value"]
+                }
+              },
+              "required": ["publication_id", "target", "body"]
+            }
+
++ Response 201 (application/json)
+
+            {
+              "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
+              "created_at": "2014-10-21T22:30:26.778Z",
+              "modified_at": "2014-10-21T22:30:26.778Z",
+              "publication_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
+              "target": {
+                "type": "FragmentSelector",
+                "page": 5,
+                "x": 0,
+                "y": 1,
+                "w": 2,
+                "h": 3
+              },
+              "body": {
+                "type": "markdown",
+                "value": "# A header\nA text"
+              }
+            }
+
+## Annotation [/annotations/{id}]
+
+### Retrieve an annotation [GET]
++ Response 200 (application/json)
+
+    + Body
+    
+            { "TODO": true }
+
+### Update an annotation [PUT]
++ Response 204
+
+### Delete an annotation [DELETE]
++ Response 204
+
+## Annotations collection [/annotations?publication={pub_id}&order={order}&skip={skip}&limit={limit}]
+
+### Retrieve or query annotations [GET]
++ Parameters
+    + pub_id (optional, string) ... A publication id for which annotations are returned
+    + order = `created_at` (optional, string) ... The order of the returned annotations list
+    
+        + Values
+            + `created_at`
+            + `-created_at`
+            + `publication`
+            + `-publication`
+            
+    + limit (optional, number) ... Maximum number of returned annotations
+    + skip (optional, number) ... Number of skipped annotations
+    
++ Response 200 (application/json)
+
+    + Body
+        
+            { "TODO": true }
+
+
+# Group Publications
+Publication related resources of the *PaperHub API*.
+
+## Publication creation [/publications/]
+
+### Create an publication [POST]
++ Request (application/json)
+    + Headers
+    
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
+    + Body
+
+            {
+              "$schema": "http://paperhub.io/api/v0/schemas/publication_post.json",
+              "origins": [
+                {
+                  "url": "http://arxiv.org/abs/1208.0264",
+                  "pdf": "http://arxiv.org/pdf/1208.0264v3",
+                  "id": "arXiv:1208.0264",
+                  "type": "arxiv",
+                  "date_added": "2014-10-15T16:31:32.040Z",
+                  "added_by": "andrenarchy"
+                }
+              ],
+              "md5sum": "e0a8bc29aff95372c49844f305973994",
+              "authors": ["andrenarchy id", "nschloe id"],
+              "title": "Preconditioned Recycling Krylov subspace methods for self-adjoint problems",
+              "date": "2014-06-12T13:55:10.000Z",
+              "journal": "arxiv id"
+            }
+
+
+    + Schema
+
+            {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "description": "A representation of a publication for POST/PUT",
+              "id": "http://paperhub.io/api/v0/schemas/publication_post.json#",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "$schema": { "type": "string" },
+                "origins": {
+                  "type": "array",
+                  "additionalProperties": false,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "pdf": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "id": { "type": "string" },
+                      "type": {
+                        "enum": ["arxiv", "uploaded"]
+                      },
+                      "date_added": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "added_by": {
+                        "$ref": "person.json#/properties/id"
+                      }
+                    }
+                  }
+                },
+                "md5sum": {
+                  "type": "string"
+                },
+                "authors": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "author_post.json"
+                  }
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "journal": {
+                  "type": "string"
+                },
+                "volume": {
+                  "type": "string"
+                },
+                "number": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "origins",
+                "md5sum",
+                "authors",
+                "title",
+                "date"
+              ]
+            }
+
+
++ Response 201 (application/json)
+
+            {
+              "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
+              "created_at": "2014-10-21T22:30:26.778Z",
+              "modified_at": "2014-10-21T22:30:26.778Z"
+            }

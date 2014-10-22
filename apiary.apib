@@ -16,7 +16,7 @@ Annotation related resources of the *PaperHub API*.
     + Body
 
             {
-              "publication_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
+              "article_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
               "target": {
                 "type": "FragmentSelector",
                 "page": 5,
@@ -44,7 +44,7 @@ Annotation related resources of the *PaperHub API*.
                 "$schema": {
                   "enum": ["http://paperhub.io/api/v0/schemas/annotation_post.json#"]
                 },
-                "publication_id": { "type": "string" },
+                "article_id": { "type": "string" },
                 "target": {
                   "oneOf": [
                     {
@@ -73,7 +73,7 @@ Annotation related resources of the *PaperHub API*.
                   "required": ["type", "value"]
                 }
               },
-              "required": ["publication_id", "target", "body"]
+              "required": ["article_id", "target", "body"]
             }
 
 + Response 201 (application/json)
@@ -82,7 +82,7 @@ Annotation related resources of the *PaperHub API*.
               "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
               "created_at": "2014-10-21T22:30:26.778Z",
               "modified_at": "2014-10-21T22:30:26.778Z",
-              "publication_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
+              "article_id": "90b29e86-819d-41f7-a53f-5ab76a403ef6",
               "target": {
                 "type": "FragmentSelector",
                 "page": 5,
@@ -107,23 +107,27 @@ Annotation related resources of the *PaperHub API*.
             { "TODO": true }
 
 ### Update an annotation [PUT]
-+ Response 204
++ Response 200
+
+    + Body
+    
+            Same as POST.
 
 ### Delete an annotation [DELETE]
 + Response 204
 
-## Annotations collection [/annotations?publication={pub_id}&order={order}&skip={skip}&limit={limit}&author={user_id}]
+## Annotations collection [/annotations?article={article_id}&order={order}&skip={skip}&limit={limit}&author={user_id}]
 
 ### Retrieve or query annotations [GET]
 + Parameters
-    + publication (optional, pub_id) ... Return annotations corresponding to the given publication
+    + article (optional, article_id) ... Return annotations corresponding to the given article
     + order = `created_at` (optional, string) ... The order of the returned annotations list
     
         + Values
             + `created_at`
             + `-created_at`
-            + `publication`
-            + `-publication`
+            + `article`
+            + `-article`
     
     + author (optional, user_id) ... Return annotations authored by the given user 
     + limit (optional, number) ... Maximum number of returned annotations
@@ -142,12 +146,12 @@ Annotation related resources of the *PaperHub API*.
             { "TODO": true }
 
 
-# Group Publications
-Publication related resources of the *PaperHub API*.
+# Group Articles
+Article related resources of the *PaperHub API*.
 
-## Publication creation [/publications/]
+## Article creation [/articles/]
 
-### Create an publication [POST]
+### Create an article [POST]
 + Request (application/json)
     + Headers
     
@@ -156,7 +160,7 @@ Publication related resources of the *PaperHub API*.
     + Body
 
             {
-              "$schema": "http://paperhub.io/api/v0/schemas/publication_post.json",
+              "$schema": "http://paperhub.io/api/v0/schemas/article_post.json",
               "origins": [
                 {
                   "url": "http://arxiv.org/abs/1208.0264",
@@ -179,8 +183,8 @@ Publication related resources of the *PaperHub API*.
 
             {
               "$schema": "http://json-schema.org/draft-04/schema#",
-              "description": "A representation of a publication for POST/PUT",
-              "id": "http://paperhub.io/api/v0/schemas/publication_post.json#",
+              "description": "A representation of an article for POST/PUT",
+              "id": "http://paperhub.io/api/v0/schemas/article_post.json#",
               "type": "object",
               "additionalProperties": false,
               "properties": {
@@ -256,3 +260,10 @@ Publication related resources of the *PaperHub API*.
               "created_at": "2014-10-21T22:30:26.778Z",
               "modified_at": "2014-10-21T22:30:26.778Z"
             }
+            
+### Update an article [PUT]
++ Response 200
+
+    + Body
+    
+            Same as POST.

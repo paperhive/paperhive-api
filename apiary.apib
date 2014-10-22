@@ -278,5 +278,46 @@ Article related resources of the *PaperHub API*.
             Same as POST.
 
 
-### Update an article [DELETE]
+### Remove an article [DELETE]
++ Response 204
+
+
+# Group Users
+User related resources of the *PaperHub API*.
+
+## User creation [/users/]
+
+### Create a user [POST]
++ Request (application/json)
+    + Body
+
+            { "TODO": "TODO" }
+
+
++ Response 201 (application/json)
+
+            {
+              "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
+              "created_at": "2014-10-21T22:30:26.778Z",
+              "modified_at": "2014-10-21T22:30:26.778Z"
+            }
+            
+## Users [/users/${id}]
+
+### Retrieve a user [GET]
++ Response 200 (application/json)
+
+    + Body
+    
+            { "TODO": true }
+            
+### Update a user [PUT]
++ Response 200
+
+    + Body
+    
+            Same as POST.
+
+
+### Remove a user [DELETE]
 + Response 204

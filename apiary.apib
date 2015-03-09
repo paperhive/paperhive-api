@@ -4,7 +4,6 @@ HOST: https://paperhub.io/dev/backend/branches/master
 # PaperHub API v0
 
 # Group Users
-User related resources of the *PaperHub API*.
 
 ## User [/users/{userId}]
 + Model (application/json)
@@ -182,6 +181,8 @@ User related resources of the *PaperHub API*.
 + Response 201
     [Article][]
 
+# Group Discussions
+
 ## Discussions [/articles/{articleId}/discussions]
 
 ### List of discussions [GET]
@@ -301,3 +302,61 @@ User related resources of the *PaperHub API*.
 
 + Response 200
     [Discussion][]
+
+## Replies [/articles/{articleId}/discussions/{discussionIndex}/replies]
+
+
+### Create reply [POST]
++ Request
+    + Headers
+
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
+    + Body
+
+            {
+              "body": "Oh thanks, Schröder is obviously wrong."
+            }
+
++ Response 201
+    [Reply][]
+
+## Reply [/articles/{articleId}/discussions/{discussionIndex}/replies/{replyId}]
++ Model (application/json)
+    + Body
+
+            {
+              "_id": "54fdf03688407046497baf85",
+              "body": "Oh thanks, Schröder is obviously wrong.",
+              "author": {
+                "_id": "54db502f8a9e25e834e3c3f4",
+                "username": "andrenarchy",
+                "displayName": "André Gaul",
+                "gravatarMd5": "ad928555ed989896aeaeb2b88db2163f"
+              },
+              "createdAt": "2015-03-09T19:10:46.779Z",
+              "updatedAt": "2015-03-09T19:10:46.779Z"
+            }
+
+### Update reply [PUT]
++ Request
+    + Headers
+
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
+    + Body
+
+            {
+              "body": "Oh thanks, Schröder is obviously wrong."
+            }
+
++ Response 200
+    [Reply][]
+
+### Delete reply [DELETE]
++ Request
+    + Headers
+
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
++ Response 204

@@ -36,15 +36,6 @@ User related resources of the *PaperHub API*.
             }
 
 ### Retrieve a user [GET]
-+ Response 200
-
-    [User][]
-
-+ Request
-    + Headers
-
-            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
-    
 + Response 200 (application/json)
 
     + Body
@@ -71,6 +62,15 @@ User related resources of the *PaperHub API*.
               "createdAt": "2015-02-11T12:50:55.283Z",
               "updatedAt": "2015-03-09T14:47:59.938Z"
             }
+
++ Request
+    + Headers
+
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+    
++ Response 200
+
+    [User][]
 
 ### Update a user [PUT]
 + Request (application/json)
@@ -99,8 +99,9 @@ User related resources of the *PaperHub API*.
 
 ### Sync data from linked ORCID account [PUT]
 
-+ Response 200 (application/json) 
++ Response 200
 
+    [User][]
 
 # Group Articles
 Article related resources of the *PaperHub API*.

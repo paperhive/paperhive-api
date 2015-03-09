@@ -6,32 +6,63 @@ HOST: https://paperhub.io/dev/backend/branches/master
 # Group Users
 User related resources of the *PaperHub API*.
 
-## User creation [/users/]
-
-### Create a user [POST]
-+ Request (application/json)
-    + Body
-
-            { "TODO": "TODO" }
-
-
-+ Response 201 (application/json)
-
-            {
-              "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
-              "created_at": "2014-10-21T22:30:26.778Z",
-              "modified_at": "2014-10-21T22:30:26.778Z"
-            }
-            
 ## Users [/users/{id}]
 
 ### Retrieve a user [GET]
 + Response 200 (application/json)
 
     + Body
+
+            {
+              "_id": "54db502f8a9e25e834e3c3f4",
+              "username": "andrenarchy",
+              "familyName": "Gaul",
+              "givenNames": "André",
+              "displayName": "André Gaul",
+              "gravatarMd5": "daa7eedcfae667756a452c79d4b30d6a",
+              "accounts": [
+                {
+                  "_id": "54db502f8a9e25e834e3c3f5",
+                  "id": "0000-0003-2977-4037",
+                  "type": "orcid"
+                }
+              ],
+              "createdAt": "2015-02-11T12:50:55.283Z",
+              "updatedAt": "2015-03-09T14:47:59.938Z"
+            }
+
++ Request
+    + Headers
+
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
     
-            { "TODO": true }
-            
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "_id": "54db502f8a9e25e834e3c3f4",
+              "username": "andrenarchy",
+              "familyName": "Gaul",
+              "givenNames": "André",
+              "displayName": "André Gaul",
+              "email": "andre@gaul.io",
+              "gravatarMd5": "daa7eedcfae667756a452c79d4b30d6a",
+              "accounts": [
+                {
+                  "_id": "54db502f8a9e25e834e3c3f5",
+                  "id": "0000-0003-2977-4037",
+                  "type": "orcid"
+                }
+              ],
+              "firstSignin": false,
+              "settings": {
+                "remember": true
+              },
+              "createdAt": "2015-02-11T12:50:55.283Z",
+              "updatedAt": "2015-03-09T14:47:59.938Z"
+            }
+
 ### Update a user [PUT]
 + Request
     + Headers
@@ -60,7 +91,7 @@ Article related resources of the *PaperHub API*.
 ## Article [/articles/{id}]
 
 ### Retrieve article [GET]
-+ Response 200 (application/json)
++ Response 200 (application/json) 
 
     + Body
     

@@ -6,10 +6,9 @@ HOST: https://paperhub.io/dev/backend/branches/master
 # Group Users
 User related resources of the *PaperHub API*.
 
-## Users [/users/{id}]
+## User [/users/{id}]
 
-### Retrieve a user [GET]
-+ Response 200 (application/json)
++ Model (application/json)
 
     + Body
 
@@ -19,6 +18,7 @@ User related resources of the *PaperHub API*.
               "familyName": "Gaul",
               "givenNames": "André",
               "displayName": "André Gaul",
+              "email": "andre@gaul.io",
               "gravatarMd5": "daa7eedcfae667756a452c79d4b30d6a",
               "accounts": [
                 {
@@ -27,9 +27,18 @@ User related resources of the *PaperHub API*.
                   "type": "orcid"
                 }
               ],
+              "firstSignin": false,
+              "settings": {
+                "remember": true
+              },
               "createdAt": "2015-02-11T12:50:55.283Z",
               "updatedAt": "2015-03-09T14:47:59.938Z"
             }
+
+### Retrieve a user [GET]
++ Response 200
+
+    [User][]
 
 + Request
     + Headers
@@ -64,25 +73,33 @@ User related resources of the *PaperHub API*.
             }
 
 ### Update a user [PUT]
-+ Request
++ Request (application/json)
     + Headers
-    
+
             X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
+    + Body
+
+            {
+              "username": "andrenarchy",
+              "familyName": "Gaul",
+              "givenNames": "André",
+              "displayName": "André Gaul",
+              "settings": {
+                "remember": true
+              },
+            }
 
 + Response 200
 
-    + Body
-    
-            Same as POST.
+    [User][]
+            
 
+## Users ORCID sync [/users/{id}/syncFromOrcid/{orcidId}]
 
-### Remove a user [DELETE]
-+ Request
-    + Headers
-    
-            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+### Sync data from linked ORCID account [PUT]
 
-+ Response 204
++ Response 200 (application/json) 
 
 
 # Group Articles

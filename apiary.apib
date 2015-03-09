@@ -7,9 +7,7 @@ HOST: https://paperhub.io/dev/backend/branches/master
 User related resources of the *PaperHub API*.
 
 ## User [/users/{id}]
-
 + Model (application/json)
-
     + Body
 
             {
@@ -37,7 +35,6 @@ User related resources of the *PaperHub API*.
 
 ### Retrieve a user [GET]
 + Response 200 (application/json)
-
     + Body
 
             {
@@ -69,7 +66,6 @@ User related resources of the *PaperHub API*.
             X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
     
 + Response 200
-
     [User][]
 
 ### Update a user [PUT]
@@ -91,197 +87,100 @@ User related resources of the *PaperHub API*.
             }
 
 + Response 200
-
     [User][]
             
 
 ## User ORCID sync [/users/{id}/syncFromOrcid/{orcidId}]
 
 ### Update user from linked ORCID account [PUT]
-
 + Response 200
-
     [User][]
 
 
 # Group Articles
-Article related resources of the *PaperHub API*.
 
 ## Article [/articles/{id}]
++ Model (application/json)
+    + Body
+
+            {
+              "_id": "54f480d81217ec3c49af08a3",
+              "title": "Preconditioned Recycling Krylov subspace methods for self-adjoint problems",
+              "authors": [
+                "André Gaul",
+                "Nico Schlömer"
+              ],
+              "publishedAt": "2015-01-07T17:08:36.000Z",
+              "abstract": "The authors propose a recycling...",
+              "tags": [
+                "math.NA",
+                "physics.comp-ph",
+                "65F10, 65F08, 35Q55, 35Q56"
+              ],
+              "public": true,
+              "source": {
+                "url": "http://arxiv.org/abs/1208.0264v4",
+                "name": "arXiv.org",
+                "id": "1208.0264v4",
+                "type": "arxiv"
+              },
+              "file": {
+                "sha": "748b8dcc0eebe4b3ba6345f80bdfc86d36118fe5",
+                "url": "http://localhost:8000/proxy?url=http%3A%2F%2Farxiv.org%2Fpdf%2F1208.0264v4.pdf"
+              },
+              "importedBy": {
+                "_id": "54db502f8a9e25e834e3c3f4",
+                "username": "andrenarchy",
+                "displayName": "André Gaul",
+                "gravatarMd5": "ad928555ed989896aeaeb2b88db2163f"
+              },
+              "createdAt": "2015-03-02T15:25:15.681Z",
+              "updatedAt": "2015-03-02T15:25:15.681Z"
+            }
 
 ### Retrieve article [GET]
-+ Response 200 (application/json) 
-
-    + Body
-    
-            {
-                "_id": "54f4b0b41217ec3c49af08a9",
-                "authors": [
-                    "Kim Siyeon"
-                ],
-                "title": "Ansatz of Leptonic Mixing: The Alliance of Bi-Maximal Mixing with a Single-Angle Rotation",
-                "publishedAt": "2012-08-13T17:23:08.000Z",
-                "abstract": "We introduce an ansatz of the PMNS...",
-                "tags": [
-                    "hep-ph"
-                ],
-                "source": {
-                    "url": "http://arxiv.org/abs/1208.2645v1",
-                    "name": "arXiv.org",
-                    "id": "1208.2645v1",
-                    "type": "arxiv"
-                },
-                "file": {
-                    "sha": "a2466125be7e49efea085200164cf4f552fc57c7",
-                    "url": "https://paperhub.io/api/v0/proxy?url=http%3A%2F%2Farxiv.org%2Fpdf%2F1208.2645v1.pdf"
-                },
-                "public": true,
-                "importedBy": {
-                    "_id": "54db502f8a9e25e834e3c3f4",
-                    "username": "andrenarchy",
-                    "displayName": "André Gaul",
-                    "gravatarMd5": "ad928555ed989896aeaeb2b88db2163f"
-                },
-                "createdAt": "2015-03-02T18:49:26.611Z",
-                "updatedAt": "2015-03-02T18:49:26.611Z"
-            }
-            
-        
-### Update an article [PUT]
-+ Request
-    + Headers
-    
-            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
-
 + Response 200
+    [Article][]
 
-    + Body
-    
-            Same as POST.
+## Article import from approved sources [/articles/sources]
 
-
-### Remove an article [DELETE]
-+ Request
-    + Headers
-    
-            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
-
-+ Response 204
-
-
-
-## Article creation [/articles/]
-
-### Create an article [POST]
+### Test if article can be imported [GET]
 + Request (application/json)
     + Headers
     
             X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
 
++ Response 200 (application/json)
     + Body
 
             {
-              "$schema": "http://paperhub.io/api/v0/schemas/article_post.json",
-              "origins": [
-                {
-                  "url": "http://arxiv.org/abs/1208.0264",
-                  "pdf": "http://arxiv.org/pdf/1208.0264v3",
-                  "id": "arXiv:1208.0264",
-                  "type": "arxiv",
-                  "date_added": "2014-10-15T16:31:32.040Z",
-                  "added_by": "andrenarchy"
-                }
+              "publishedAt": "2014-06-12T13:55:10Z",
+              "authors": [
+                "André Gaul",
+                "Nico Schlömer"
               ],
-              "md5sum": "e0a8bc29aff95372c49844f305973994",
-              "authors": ["andrenarchy id", "nschloe id"],
-              "title": "Preconditioned Recycling Krylov subspace methods for self-adjoint problems",
-              "date": "2014-06-12T13:55:10.000Z",
-              "journal": "arxiv id"
-            }
-
-
-    + Schema
-
-            {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "description": "A representation of an article for POST/PUT",
-              "id": "http://paperhub.io/api/v0/schemas/article_post.json#",
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "$schema": { "type": "string" },
-                "origins": {
-                  "type": "array",
-                  "additionalProperties": false,
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "pdf": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "id": { "type": "string" },
-                      "type": {
-                        "enum": ["arxiv", "uploaded"]
-                      },
-                      "date_added": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "added_by": {
-                        "$ref": "person.json#/properties/id"
-                      }
-                    }
-                  }
-                },
-                "md5sum": {
-                  "type": "string"
-                },
-                "authors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "author_post.json"
-                  }
-                },
-                "title": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
-                },
-                "journal": {
-                  "type": "string"
-                },
-                "volume": {
-                  "type": "string"
-                },
-                "number": {
-                  "type": "string"
-                }
+              "source": {
+                "id": "1208.0264v3",
+                "type": "arxiv"
               },
-              "required": [
-                "origins",
-                "md5sum",
-                "authors",
-                "title",
-                "date"
-              ]
-            }
-
-
-+ Response 201 (application/json)
-
-            {
-              "id": "235f7939-b83a-4f23-904a-b8454ed01c12",
-              "created_at": "2014-10-21T22:30:26.778Z",
-              "modified_at": "2014-10-21T22:30:26.778Z"
+              "abstract": "The authors propose a recycling Krylov subspace method for the solution of a\nsequence of self-adjoint linear systems. Such problems appear, for example, in\nthe Newton process for solving nonlinear equations. Ritz vectors are\nautomatically extracted from one MINRES run and then used for self-adjoint\ndeflation in the next. The method is designed to work with arbitrary inner\nproducts and arbitrary self-adjoint positive-definite preconditioners whose\ninverse can be computed with high accuracy. Numerical experiments with\nnonlinear Schr\\\"odinger equations indicate a substantial decrease in\ncomputation time when recycling is used.",
+              "title": "Preconditioned Recycling Krylov subspace methods for self-adjoint problems",
+              "tags": [
+                "math.NA",
+                "physics.comp-ph",
+                "65F10, 65F08, 35Q55, 35Q56"
+              ],
+              "public": true
             }
             
+### Import article [POST]
++ Request
+    + Headers
+    
+            X-Auth-Token: e1289dd4dec21ddfef4672fa23906f20
+
++ Response 200
+    [Article][]
 
 # Group Annotations
 Annotation related resources of the *PaperHub API*.

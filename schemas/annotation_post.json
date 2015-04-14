@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://paperhub.io/api/v0/schemas/annotation_post.json#",
-  "description": "PaperHub annotation schema for POSTing",
+  "id": "http://paperhive.org/api/v0/schemas/annotation_post.json#",
+  "description": "PaperHive annotation schema for POSTing",
   "type": "object",
   "additionalProperties": false,
   "properties": {
     "$schema": {
-      "enum": ["http://paperhub.io/api/v0/schemas/annotation_post.json#"]
+      "enum": ["http://paperhive.org/api/v0/schemas/annotation_post.json#"]
     },
     "publication_id": { "type": "string" },
     "target": {

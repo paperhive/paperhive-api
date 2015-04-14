@@ -1,5 +1,5 @@
 {
-  "$schema": "http://paperhub.io/api/v0/schemas/annotation_post.json#",
+  "$schema": "http://paperhive.org/api/v0/schemas/annotation_post.json#",
   "publication_id": "pub:gaul-schloemer-14",
   "target": {
     "type": "FragmentSelector",

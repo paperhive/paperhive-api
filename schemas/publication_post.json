@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "A representation of a publication for POST/PUT",
-  "id": "http://paperhub.io/api/v0/schemas/publication_post.json#",
+  "id": "http://paperhive.org/api/v0/schemas/publication_post.json#",
   "type": "object",
   "additionalProperties": false,
   "properties": {

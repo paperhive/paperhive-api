@@ -1,4 +1,4 @@
-# API documentation, schemas and examples [![Build Status](https://travis-ci.org/paperhub/paperhub-api.svg?branch=master)](https://travis-ci.org/paperhub/paperhub-api)
+# API documentation, schemas and examples [![Build Status](https://travis-ci.org/paperhive/paperhive-api.svg?branch=master)](https://travis-ci.org/paperhive/paperhive-api)
 
 # Tests
 
